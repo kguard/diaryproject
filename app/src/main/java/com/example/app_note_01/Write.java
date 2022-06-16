@@ -14,16 +14,18 @@ public class Write extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.write);
-        EditText editText=findViewById(R.id.edittext1);
-        EditText editText1=findViewById(R.id.edittext2);
-        Button button=findViewById(R.id.button);
-        Button button1=findViewById(R.id.button2);
+        EditText editText = findViewById(R.id.edittext1);
+        EditText editText1 = findViewById(R.id.edittext2);
+        Button button = findViewById(R.id.button);
+        Button button1 = findViewById(R.id.button2);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(Write.this,MainActivity.class);
-                intent.putExtra("Title",editText.getText().toString());
-                intent.putExtra("contents",editText1.getText().toString());
+                Intent intent = new Intent(Write.this, MainActivity.class);
+                intent.putExtra("Title", editText.getText().toString());
+                intent.putExtra("contents", editText1.getText().toString());
 
             }
+        });
+    }
 }
