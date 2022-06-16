@@ -13,7 +13,7 @@
             android:name=".DetailActivity"
             android:exported="false" />
         <activity
-            android:name=".Write"
+            android:name=".WriteActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
