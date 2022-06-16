@@ -1,6 +1,8 @@
 package com.example.app_note_01;
 
-public class Memo {
+import java.io.Serializable;
+
+public class Memo implements Serializable {
     private String title;
     private String contents;
 

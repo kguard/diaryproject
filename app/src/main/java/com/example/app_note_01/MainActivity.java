@@ -3,7 +3,9 @@ package com.example.app_note_01;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.app_note_01.Database.MemoDatabase;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,7 +24,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         RecyclerView recyclerView=findViewById(R.id.recyclerview);
         FloatingActionButton floatingActionButton=findViewById(R.id.floatingActionButton);
-        recyclerView.setLayoutManager(new GridLayoutManager(MainActivity.this,3));
+        Intent intent=getIntent();
+        Memo memo=(Memo)intent.getSerializableExtra("Memo");
+        //MemoDatabase db=Room.databaseBuilder(getApplicationContext(),MemoDatabase.class,"db").build();
+        //Room room=
+        recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
         recyclerView.setAdapter(new RecyclerView.Adapter() {
             @NonNull
             @Override

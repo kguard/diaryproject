@@ -17,13 +17,20 @@ public class WriteActivity extends AppCompatActivity {
         EditText editText = findViewById(R.id.edittext1);
         EditText editText1 = findViewById(R.id.edittext2);
         Button buttonSave = findViewById(R.id.button);
-        Button button1 = findViewById(R.id.button2);
+        Button buttonCancel = findViewById(R.id.button2);
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(WriteActivity.this, MainActivity.class);
-                intent.putExtra("Title", editText.getText().toString());
-                intent.putExtra("contents", editText1.getText().toString());
+                intent.putExtra("Memo",new Memo(editText.getText().toString(),editText1.getText().toString()));
+                startActivity(intent);
+            }
+        });
+        buttonCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WriteActivity.this, MainActivity.class);
+                startActivity(intent);
 
             }
         });
