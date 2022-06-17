@@ -3,10 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< HEAD
         <entry key="app/src/main/res/layout/activity_detail.xml" value="0.2575386821359828" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.13234405517578127" />
         <entry key="app/src/main/res/layout/itemholder.xml" value="0.20108695652173914" />
         <entry key="app/src/main/res/layout/write.xml" value="0.18885869565217392" />
+=======
+        <entry key="..\:/git/diaryproject/app/src/main/res/drawable/edit_text_black.xml" value="0.3505" />
+        <entry key="..\:/git/diaryproject/app/src/main/res/layout/activity_detail.xml" value="0.3619791666666667" />
+        <entry key="..\:/git/diaryproject/app/src/main/res/layout/activity_write.xml" value="0.3619791666666667" />
+        <entry key="..\:/git/diaryproject/app/src/main/res/layout/itemholder.xml" value="0.3619791666666667" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+>>>>>>> 239134aaab9b22da84ec277f1f82b346230077b9
       </map>
     </option>
   </component>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/primary_text_dark_nodisable"
-    tools:context=".Write">
+    tools:context=".WriteActivity">
 
     <Button
         android:id="@+id/button"
