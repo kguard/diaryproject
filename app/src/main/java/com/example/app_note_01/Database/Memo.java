@@ -10,4 +10,11 @@ public class Memo implements Serializable {
     public int id;
     public String title;
     public String contents;
+
+    public String getTitle() {return title;}
+    public String getContents() {return contents;}
+    public int getId(){return id;}
+    public void setTitle(String a){this.title=a;}
+    public void setContents(String a){this.contents=a;}
 }
+

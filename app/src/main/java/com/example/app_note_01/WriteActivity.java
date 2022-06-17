@@ -8,6 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.app_note_01.Database.Memo;
+import com.example.app_note_01.Database.MemoDatabase;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class WriteActivity extends AppCompatActivity {
 
     @Override
@@ -18,20 +24,26 @@ public class WriteActivity extends AppCompatActivity {
         EditText editText1 = findViewById(R.id.edittext2);
         Button buttonSave = findViewById(R.id.button);
         Button buttonCancel = findViewById(R.id.button2);
+        List<Memo> list=new ArrayList<>();
+        MemoDatabase database=MemoDatabase.getInstance(this);
+        list= (List<Memo>) database.memoDAO().getAll();
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(WriteActivity.this, MainActivity.class);
-                intent.putExtra("Memo",new Memo(editText.getText().toString(),editText1.getText().toString()));
-                startActivity(intent);
+                String title=editText.getText().toString();
+                String contents=editText1.getText().toString();
+                Memo memo=new Memo();
+                memo.setTitle(title);
+                memo.setContents(contents);
+                database.memoDAO().insert(memo);
+                MainActivity.adapter.notifyDataSetChanged();
+                finish();
             }
         });
         buttonCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(WriteActivity.this, MainActivity.class);
-                startActivity(intent);
-
+                finish();
             }
         });
     }

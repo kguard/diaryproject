@@ -1,5 +1,6 @@
 package com.example.app_note_01.Database;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -12,16 +13,16 @@ import java.util.List;
 public interface MemoDAO {
     @Query("SELECT * from Memo")
     List<Memo> getAll();
-    @Query("SELECT title from Memo")
-    List<Memo> getTitle();
-    @Query("SELECT contents from Memo")
-    List<Memo> getContents();
+    //@Query("SELECT title from Memo")
+    //List<Memo> getTitle();
+   // @Query("SELECT contents from Memo")
+    //List<Memo> getContents();
     @Insert
     void insert(Memo...memos);
-    @Delete
-    void delete(Memo...memos);
-    @Update
-    void update(Memo...memos);
+   // @Delete
+    //void delete(Memo...memos);
+   // @Update
+    //void update(Memo...memos);
 
 
 }
