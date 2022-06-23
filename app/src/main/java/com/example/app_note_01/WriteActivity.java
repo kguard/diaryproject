@@ -24,9 +24,9 @@ public class WriteActivity extends AppCompatActivity {
         EditText editText1 = findViewById(R.id.edittext2);
         Button buttonSave = findViewById(R.id.button);
         Button buttonCancel = findViewById(R.id.button2);
-        List<Memo> list=new ArrayList<>();
+        //List<Memo> list=new ArrayList<>();
         MemoDatabase database=MemoDatabase.getInstance(this);
-        list= (List<Memo>) database.memoDAO().getAll();
+        //list= (List<Memo>) database.memoDAO().getAll();
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,7 +36,7 @@ public class WriteActivity extends AppCompatActivity {
                 memo.setTitle(title);
                 memo.setContents(contents);
                 database.memoDAO().insert(memo);
-                MainActivity.adapter.notifyDataSetChanged();
+
                 finish();
             }
         });

@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 
 import android.content.Intent;
@@ -21,7 +22,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static RecyclerView.Adapter adapter;
+    public RecyclerView.Adapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,10 +32,11 @@ public class MainActivity extends AppCompatActivity {
 
 
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
-        List<Memo> list=new ArrayList<>();
+
         MemoDatabase database=MemoDatabase.getInstance(this);
-        list= (List<Memo>) database.memoDAO().getAll();
-        List<Memo> finalList = list;
+
+        List<Memo> list=(List<Memo>) database.memoDAO().getAll();
+
         adapter = new RecyclerView.Adapter() {
             @NonNull
             @Override
@@ -47,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
                 CustomViewHolder viewHolder = (CustomViewHolder) holder;
-                com.example.app_note_01.Database.Memo memo= finalList.get(position);
+                com.example.app_note_01.Database.Memo memo= list.get(position);
                 viewHolder.setTitle(memo.getTitle());
                 viewHolder.title.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -60,13 +62,10 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public int getItemCount() {
-                return finalList.size();
+                return list.size();
             }
         };
-
         recyclerView.setAdapter(adapter);
-
-
 
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
@@ -76,5 +75,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 }

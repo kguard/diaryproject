@@ -1,11 +1,9 @@
 package com.example.app_note_01.Database;
 
-import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
-import androidx.room.Update;
 
 import java.util.List;
 
@@ -19,7 +17,7 @@ public interface MemoDAO {
     //List<Memo> getContents();
     @Insert
     void insert(Memo...memos);
-   // @Delete
+    //@Delete
     //void delete(Memo...memos);
    // @Update
     //void update(Memo...memos);
